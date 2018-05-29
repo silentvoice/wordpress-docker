@@ -1,5 +1,5 @@
 # Wordpress Docker
-Wordpress theme/plugin development and deployment using dockers
+Wordpress theme/plugin development and deployment using docker
 
 ## Requirements
 
