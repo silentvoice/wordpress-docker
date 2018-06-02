@@ -36,7 +36,7 @@ For Local theme development create wp-content/themes/your-theme-name inside the 
 COPY wp-content/themes/* /usr/src/wordpress/wp-content/themes/
 ```
 
-For Local plugin development create wp-content/plugin/your-plugin-name inside the project as per the project structure
+For Local plugin development create wp-content/plugin/your-plugin-name inside the project as per the project structure. And un-comment line no 48 in Dockerfile to
 ```bash
 COPY wp-content/plugins/* /usr/src/wordpress/wp-content/plugins/
 ```
