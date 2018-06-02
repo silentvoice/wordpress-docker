@@ -42,6 +42,7 @@ RUN rm -r /usr/src/wordpress/wp-content/themes/twentyfifteen   \
  && rm    /usr/src/wordpress/wp-content/plugins/hello.php \
  && sed -i 's/\[ "$(ls -A)" \]/false/' "$(which docker-entrypoint.sh)"
 
-# For local theme development
+# For local theme development uncomment the line below
 #COPY wp-content/themes/* /usr/src/wordpress/wp-content/themes/
- 
+# For local plugin development uncomment the line below
+#COPY wp-content/plugins/* /usr/src/wordpress/wp-content/plugins/
