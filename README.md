@@ -22,7 +22,7 @@ bin
   ├─ entrypoint.sh      # Custom script to append to the original entrypoint.sh of wordpress
   ├─ pre-entrypoint.sh  # DATABASE_URL parsing to wordpress envs
 wp-content
-  ├─ themes             #(Options - Only if you are making custom theme)
+  ├─ themes             # (Options - Only if you are making custom theme)
      ├─ custom-theme    # The name of the custom theme 
   ├─ plugins            # (Optional - Only if you are making custom plugin)
      ├─ custom-plugin   # The name of the custom plugin             
