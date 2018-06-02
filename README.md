@@ -5,17 +5,17 @@ Wordpress theme/plugin development and deployment using docker
 
 * Docker
 
-### development
+## Development
 Uses docker-compose for local development
 
-#### Getting Started
+### Getting Started
 
 Start the server for local development
 ```bash
 bash bin/dev.sh
 ```
 
-#### Project Structure
+### Project Structure
 ```
 bin
   ├─ dev.sh             # Script to start the development sever
@@ -41,9 +41,9 @@ For Local plugin development create wp-content/plugin/your-plugin-name inside th
 COPY wp-content/plugins/* /usr/src/wordpress/wp-content/plugins/
 ```
 
-### Production Deployment - Dokku wordpress docker deployment on digital ocean
+## Production Deployment - Dokku wordpress docker deployment on digital ocean
 
-#### 1. [Create a droplet](https://cloud.digitalocean.com/droplets/new) on digitalocean
+### 1. [Create a droplet](https://cloud.digitalocean.com/droplets/new) on digitalocean
 - Choose one click dokku app on ubuntu 16.04 (Choose Stable release)
 - Choose a size - $5/mo (Depending on your requirement)
 - Choose a datacenter region - Region closest to your target audience
@@ -58,11 +58,11 @@ COPY wp-content/plugins/* /usr/src/wordpress/wp-content/plugins/
   - How many droplets? - optional (1 will suffice)
   - Choose a hostname - optional
 
-#### 2. Point your domain name to the Public IP address of the digital ocean
+### 2. Point your domain name to the Public IP address of the digital ocean
 
-#### 3. [Setup initial server](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)
+### 3. [Setup initial server](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)
 
-#### 4. Setup Dokku
+### 4. Setup Dokku
 ```bash
 export APP_NAME=the-app-name
 export DOMAIN_NAME=my-domain.com
@@ -88,7 +88,7 @@ sudo dokku letsencrypt:cron-job --add
 ```
 
 
-#### 5. To Keep Deploying
+### 5. To keep deploying updates
 ```bash
 git push production master
 ```
