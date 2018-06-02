@@ -19,17 +19,17 @@ bash bin/dev.sh
 ```
 bin
   ├─ dev.sh             # Script to start the development sever
-  ├─ entrypoint.sh      # Script for custom additional script to be appended to wordpress container      while starting up
-  ├─ pre-entrypoint.sh  # A small script which converts the DATABASE_URL into individual wordpress config envs.
+  ├─ entrypoint.sh      # Custom script to append to the original entrypoint.sh of wordpress
+  ├─ pre-entrypoint.sh  # DATABASE_URL parsing to wordpress envs
 wp-content
-  ├─ themes (Options - Only if you are making custom theme)
-     ├─ custom-theme   # The name of the custom theme 
-  ├─ plugins (Optional - Only if you are making custom plugin)
-     ├─ custom-plugin  # The name of the custom plugin             
-docker-compose.dev.yml # Docker compose for local development
-Dockerfile             # Dockerfile used to build the production container
-.gitignore             # list of files to ignore
-README.md              # you are here
+  ├─ themes             #(Options - Only if you are making custom theme)
+     ├─ custom-theme    # The name of the custom theme 
+  ├─ plugins            # (Optional - Only if you are making custom plugin)
+     ├─ custom-plugin   # The name of the custom plugin             
+docker-compose.dev.yml  # Docker compose for local development
+Dockerfile              # Dockerfile used to build the production container
+.gitignore              # list of files to ignore
+README.md               # you are here
 ```
 For Local theme development create wp-content/themes/your-theme-name inside the project as per the project structure. And un-comment line no 46 in Dockerfile to
 ```bash
