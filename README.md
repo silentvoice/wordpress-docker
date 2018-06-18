@@ -88,7 +88,23 @@ sudo dokku letsencrypt:cron-job --add
 ```
 
 
-### 5. To keep deploying updates
+### 5. To keep deploying updates manually
 ```bash
 git push production master
 ```
+
+### 5. To Deploy using circleci
+- Replace hostname with ip/domain-name in .circleci/config.yml
+- Replace app-name with deployed dokku app-name in .circle/config.yml
+- Sign in to circleci.com and click “Add Projects”
+- Find the repo for your app and click “Build project”
+- Create a ssh key pair so CircleCI can deploy to Dokku
+```bash
+ssh dokku
+cd ~/.ssh
+ssh-keygen -t rsa    # save as circleci.id_rsa
+sudo dokku ssh-keys:add circleci ./circleci.id_rsa.pub
+cat ~/.ssh/circleci.id_rsa
+```
+- Copy & paste your private key into CircleCI (Project Settings > SSH Permissions > Add SSH Key)
+- Push a commit to your master branch or merge a pull request to see your app deployed to Dokku

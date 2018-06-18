@@ -1,0 +1,36 @@
+version: 2
+jobs:
+  build:
+    docker:
+      #TODO use different image or create a custom image
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          command: 'echo "Build Step Complete"'
+
+  deploy:
+    docker:
+      #TODO use different image or create a custom image
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Dokku Digital Ocean
+          command: |
+            ssh-keyscan hostname >> ~/.ssh/known_hosts
+            git remote add production dokku@hostname:app-name
+            git push production master
+            echo "Successfully Deployment"
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
